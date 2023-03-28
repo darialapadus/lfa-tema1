@@ -19,6 +19,7 @@ def verificare_cuvant(tranzitii, stare_initiala, stari_finale, cuvant):
 
 with open("fisier.txt", "r") as f:
     stari = set(f.readline().strip().split())
+    stareinitiala=f.readline().strip()
     simboluri = set(f.readline().strip().split())
     stari_finale = set(f.readline().strip().split())
     tranzitii = {}
@@ -26,5 +27,5 @@ with open("fisier.txt", "r") as f:
         stare1, caracter, stare2 = linie.strip().split()
         tranzitii[(stare1, caracter)] = stare2
 cuvant = input("Introduceti cuvantul: ")
-if not verificare_cuvant(tranzitii, "q0", stari_finale, cuvant):
+if not verificare_cuvant(tranzitii, stareinitiala, stari_finale, cuvant):
     print("Cuvantul nu este acceptat de automat.")
